@@ -1,0 +1,24 @@
+{
+  "name": "all-in-one-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.0.0",
+    "cors": "^2.8.5",
+    "db-migrate-mysql": "^1.1.10",
+    "express": "^4.17.1",
+    "knex": "^0.19.4",
+    "mysql2": "^1.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
