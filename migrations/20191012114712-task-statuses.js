@@ -15,22 +15,26 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('note_category', {
+  return db.createTable('task_statuses', {
     id: {
       type: 'int',
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: 'string',
-      notNull: true,
-      unique: true,
+    status: {
+      type: 'string'
     }
+  }).then(() => {
+    db.insert('task_statuses', ['id', 'status'], [1, 'TODO'])
+  }).then(() => {
+    db.insert('task_statuses', ['id', 'status'], [2, 'WORK'])
+  }).then(() => {
+    db.insert('task_statuses', ['id', 'status'], [3, 'DONE'])
   })
 };
 
 exports.down = function(db) {
-  return db.dropTable('note_category');
+  return db.dropTable('task_statuses');
 };
 
 exports._meta = {

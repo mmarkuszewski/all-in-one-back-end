@@ -15,34 +15,22 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('note', {
+  return db.createTable('note_categories', {
     id: {
       type: 'int',
       primaryKey: true,
       autoIncrement: true,
     },
-    category: {
-      type: 'int',
+    name: {
+      type: 'string',
       notNull: true,
-      foreignKey: {
-        name: 'note_note_category_id_fk',
-        table: 'note_category',
-        rules: {
-          onDelete: 'CASCADE',
-          onUpdate: 'RESTRICT'
-        },
-        mapping: 'id'
-      }
-    },
-    content: {
-      type: 'string'
+      unique: true,
     }
-
-    })
+  })
 };
 
 exports.down = function(db) {
-  return db.dropTable('note');
+  return db.dropTable('note_categories');
 };
 
 exports._meta = {
